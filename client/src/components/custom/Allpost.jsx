@@ -14,8 +14,6 @@ const Allpost = () => {
 
   useEffect(() => {
     getAllPost();
-    console.log(posts)
-
   }, [])
   return (
     <div className='mx-8'>
@@ -29,7 +27,9 @@ const Allpost = () => {
         {
 
           posts?.map((data) => (
-            <Moviecard getPost={getAllPost} id={data._id} image={data.screenshots[0]?.secure_url} title={data.fullName} />
+            <Moviecard getPost={getAllPost} id={data._id}
+              image={data.screenshots[0]?.secure_url}
+              title={data.fullName} />
           ))
         }
 
