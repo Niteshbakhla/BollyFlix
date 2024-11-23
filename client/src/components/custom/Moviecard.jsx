@@ -18,7 +18,7 @@ const Moviecard = ({ image, to, title, id, getPost }) => {
 
             useEffect(() => {
                         getPost()
-            }, [deletePost])
+            }, [])
 
             return (
                         <div className=' w-[85vw]  m-auto md:w-[15rem]  p-2 md:h-[400px] rounded-xl shadow-md lg:m-6'>
