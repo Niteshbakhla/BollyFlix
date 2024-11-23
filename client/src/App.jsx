@@ -9,12 +9,13 @@ import Dashboard from './pages/Dashboard'
 import Adminnavbar from './components/custom/Adminnavbar'
 import { Provider, useDispatch } from "react-redux";
 import { store } from "./../stores/store"
+import MovieDetails from './pages/MovieDetails'
 
 
 
 function App() {
 
- 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -42,8 +43,17 @@ function App() {
           <Dashboard />
         </>
       )
+    },
+    {
+      path: "/movie/:id",
+      element: (
+        <>
+          <Adminnavbar />
+          <MovieDetails />
+        </>
+      )
     }
-  ])
+  ]);
 
 
   return <Provider store={store}>
