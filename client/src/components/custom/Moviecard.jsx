@@ -2,9 +2,11 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { Button } from '../ui/button'
 import toast, { Toaster } from 'react-hot-toast'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Moviecard = ({ image, to, title, id, getPost }) => {
 
+            const navigate = useNavigate();
             const deletePost = async (id) => {
 
                         try {
@@ -19,14 +21,16 @@ const Moviecard = ({ image, to, title, id, getPost }) => {
             useEffect(() => {
                         getPost()
             }, [])
-
             return (
-                        <div className=' w-[85vw]  m-auto md:w-[15rem]  p-2 md:h-[400px] rounded-xl shadow-md lg:m-6'>
+
+                        <div onClick={() => navigate(`/movie/${to}`)}
+                                    className=' w-[85vw]  m-auto md:w-[15rem]  p-2 md:h-[400px] rounded-xl shadow-md lg:m-6'>
                                     <Toaster position='top-center' />
                                     <img className='rounded-sm' src={image} alt="" />
                                     <h2 className='px-3'>Download: {title}</h2>
                                     <Button onClick={() => deletePost(id)} >Delete</Button>
                         </div>
+
             )
 }
 

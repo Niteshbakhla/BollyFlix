@@ -3,6 +3,7 @@ import Adminmoviecard from './Adminmoviecard'
 import Moviecard from './Moviecard'
 import axios from 'axios'
 
+
 const Allpost = () => {
 
   const [posts, setPosts] = useState([])
@@ -27,9 +28,14 @@ const Allpost = () => {
         {
 
           posts?.map((data) => (
-            <Moviecard getPost={getAllPost} id={data._id}
+
+            <Moviecard
+
+              to={data.movieName}
+              getPost={getAllPost} id={data._id}
               image={data.screenshots[0]?.secure_url}
-              title={data.fullName} />
+              title={data.movieName} />
+
           ))
         }
 
