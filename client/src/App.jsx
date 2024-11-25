@@ -45,7 +45,7 @@ function App() {
       )
     },
     {
-      path: "/movie/:id",
+      path: "/movie/:title",
       element: (
         <>
           <Adminnavbar />
