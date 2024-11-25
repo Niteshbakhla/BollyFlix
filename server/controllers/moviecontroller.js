@@ -94,14 +94,16 @@ exports.getMovies = async (req, res) => {
 exports.getMovieByTitle = async (req, res) => {
             const { title } = req.params;
             try {
-                        const movies = await movie.findOne({ fullname: title })
-                        if (!movies) {
-                                    return res.status(404).json({ success: false, message: "movie not found" })
+                        const Movie = await movie.findOne({ movieName: title });
+
+                        if (!movie) {
+                                    return res.status(404).json({ success: false, message: "Movie not found" });
                         }
 
-                        return res.status(200).json({ success: true, data: movies })
+                        return res.status(200).json({ success: true, data: Movie });
             } catch (error) {
-                        return res.status(500).json({ success: false, message: error.message })
+                        return res.status(500).json({ success: false, message: error.message });
             }
+
 }
 
